@@ -13,44 +13,41 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Cursor="Hand">
             <TextBox Width="200" Margin="5" TextChanged="SearchBox_TextChanged" x:Name="SearchBox"/>
             <ComboBox Width="150" Margin="5" x:Name="SupplierFilter" SelectionChanged="SupplierFilter_SelectionChanged" Cursor="Hand"/>
             <Button Background="#7FFF00" Width="90" Content="Сортировать ↑" Margin="5" Click="SortAsc_Click" Cursor="Hand"/>
             <Button Background="#7FFF00" Width="90" Content="Сортировать ↓" Margin="5" Click="SortDesc_Click" Cursor="Hand"/>
-            <Button Background="#7FFF00" Width="110" Content="Добавить товар" Margin="5" Click="AddProduct_Click" x:Name="AddButton"/>
+            <Button Background="#7FFF00" Width="110" Content="Добавить товар" Margin="5" Click="AddProduct_Click" x:Name="AddProduct"/>
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding ProductsList}" x:Name="ProductsList" HorizontalContentAlignment="Stretch">
             <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
+                <ItemsPanelTemplate >
                     <StackPanel Width="auto"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300"/>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="300"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding photo_url}" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
-                            <StackPanel Grid.Column="1">
-                                <TextBlock Text="{Binding name, StringFormat='Наименование: {0}'}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding category, StringFormat='Категория: {0}'}"/>
-                                
-                                <TextBlock Text="{Binding description, StringFormat='Описание: {0}'}"/>
-                                <TextBlock Text="{Binding manufacturer, StringFormat='Производитель: {0}'}"/>
-                                <TextBlock Text="{Binding supplier, StringFormat='Поставщик: {0}'}"/>
-                                <TextBlock Text="{Binding price, StringFormat='Цена: {0}'}"/>
-                                <TextBlock Text="{Binding edizm, StringFormat='Единица измерения: {0}'}"/>
-                                <TextBlock Text="{Binding count, StringFormat='Количество на складе: {0}'}"/>
-                            </StackPanel>
-                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding sale}" FontWeight="Bold"/>
-                        </Grid>
-                    </Border>
+                <DataTemplate >
+                    <Grid MouseLeftButtonUp="EditProduct_Click" Cursor="Hand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding photo_url}" Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding name, StringFormat='Наименование: {0}'}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding category, StringFormat='Категория: {0}'}"/>
+                            <TextBlock Text="{Binding description, StringFormat='Описание: {0}'}"/>
+                            <TextBlock Text="{Binding manufacturer, StringFormat='Производитель: {0}'}"/>
+                            <TextBlock Text="{Binding supplier, StringFormat='Поставщик: {0}'}"/>
+                            <TextBlock Text="{Binding price, StringFormat='Цена: {0}'}"/>
+                            <TextBlock Text="{Binding edizm, StringFormat='Единица измерения: {0}'}"/>
+                            <TextBlock Text="{Binding count, StringFormat='Количество на складе: {0}'}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding sale}" FontWeight="Bold"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
 

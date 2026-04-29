@@ -13,7 +13,7 @@ namespace DemoApp26.AppData
         public static bool IsAdmin = false;
         public static orders CurrentOrder;
         public static orders EditOrder;
-        public static orders CurrentProduct;
-        public static orders EditProduct;
+        public static products CurrentProduct;
+        public static products EditProduct;
     }
 }

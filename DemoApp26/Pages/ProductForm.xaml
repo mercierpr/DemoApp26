@@ -35,7 +35,6 @@
                 <TextBox Name="TextBoxDescription" Text="{Binding description}"/>
             </StackPanel>
         </StackPanel>
-        <Button Background="#7FFF00" Content="Сохранить" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="Button_Click"/>
-
+        <Button Background="#7FFF00" Content="Сохранить" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="Button_Click" Cursor="Hand"/>
     </Grid>
 </Page>

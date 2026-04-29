@@ -99,7 +99,14 @@ namespace DemoApp26.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
+            AppData.AppData.CurrentProduct = new products();
+            NavigationService.Navigate(new ProductForm());
+        }
 
+        private void EditProduct_Click(object sender, MouseButtonEventArgs e)
+        {
+            AppData.AppData.CurrentProduct = ProductsList.SelectedItem as products;
+            NavigationService.Navigate(new ProductForm());
         }
     }
 }
