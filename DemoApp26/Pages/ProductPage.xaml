@@ -14,11 +14,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Cursor="Hand">
+            <Button Background="#00FA9A" Width="55" Content="Назад" Margin="5" Click="GoBack_Click" x:Name="GoBack"/>
             <TextBox Width="200" Margin="5" TextChanged="SearchBox_TextChanged" x:Name="SearchBox"/>
             <ComboBox Width="150" Margin="5" x:Name="SupplierFilter" SelectionChanged="SupplierFilter_SelectionChanged" Cursor="Hand"/>
-            <Button Background="#7FFF00" Width="90" Content="Сортировать ↑" Margin="5" Click="SortAsc_Click" Cursor="Hand"/>
-            <Button Background="#7FFF00" Width="90" Content="Сортировать ↓" Margin="5" Click="SortDesc_Click" Cursor="Hand"/>
+            <Button Background="#7FFF00" Width="55" Content="Сорт ↑" Margin="5" Click="SortAsc_Click" Cursor="Hand"/>
+            <Button Background="#7FFF00" Width="55" Content="Сорт ↓" Margin="5" Click="SortDesc_Click" Cursor="Hand"/>
             <Button Background="#7FFF00" Width="110" Content="Добавить товар" Margin="5" Click="AddProduct_Click" x:Name="AddProduct"/>
+            <Button Background="#7FFF00" Width="55" Content="Заказы" Margin="5" Click="GoOrders_Click" x:Name="GoOrders"/>
         </StackPanel>
         <ListView Grid.Row="1" ItemsSource="{Binding ProductsList}" x:Name="ProductsList" HorizontalContentAlignment="Stretch">
             <ListView.ItemsPanel>
@@ -50,7 +52,6 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
     </Grid>
 </Page>

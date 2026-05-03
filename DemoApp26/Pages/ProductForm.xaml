@@ -9,7 +9,13 @@
       Title="ProductForm">
 
     <Grid Background="White">
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Background="#00FA9A" Width="55" Content="Назад" Margin="10,10,735,110" Click="GoBack_Click" x:Name="GoBack"/>
+        <StackPanel Grid.RowSpan="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Width="200" Margin="0 0 20 0">
                 <TextBlock Text="Артикул"/>
                 <TextBox Name="TextBoxArticul" Text="{Binding articul}"/>
@@ -35,6 +41,9 @@
                 <TextBox Name="TextBoxDescription" Text="{Binding description}"/>
             </StackPanel>
         </StackPanel>
-        <Button Background="#7FFF00" Content="Сохранить" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="Button_Click" Cursor="Hand"/>
+        <StackPanel Grid.Row="2">
+            <Button Background="#7FFF00" Content="Сохранить" Margin="0,10,0,0" Width="136" Height="37" Click="ButtonSave_Click" Cursor="Hand"/>
+            <Button Background="#00FA9A" Content="Удалить" Margin="0,10,0,0" Width="104" Height="27" Click="ButtonDel_Click" Cursor="Hand"/>
+        </StackPanel>
     </Grid>
 </Page>

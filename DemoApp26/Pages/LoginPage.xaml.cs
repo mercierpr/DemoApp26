@@ -39,19 +39,19 @@ namespace DemoApp26.Pages
             {
                 AppData.AppData.CurrentUser = currentUser;
                 NavigationService.Navigate(new ProductPage());
-                //switch (currentUser.role)
-                //{
-                //    case "Администратор":
-                //        NavigationService.Navigate(new AdminPage());
-                //        AppData.AppData.isAdmin = true;
-                //        break;
-                //    case "Менеджер":
-                //        NavigationService.Navigate(new ManagerPage());
-                //        break;
-                //    default: 
-                //        NavigationService.Navigate(new UserPage());
-                //        break;
-                //}
+                switch (currentUser.role)
+                {
+                    case "Администратор":
+                        NavigationService.Navigate(new ProductPage());
+                        AppData.AppData.IsAdmin = true;
+                        break;
+                    case "Менеджер":
+                        NavigationService.Navigate(new ProductPage());
+                        break;
+                    default:
+                        NavigationService.Navigate(new UserPage());
+                        break;
+                }
             }
         }
     }

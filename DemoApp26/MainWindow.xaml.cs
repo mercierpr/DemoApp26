@@ -24,7 +24,7 @@ namespace DemoApp26
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductPage());
+            MainFrame.Navigate(new LoginPage());
         }
     }
 }

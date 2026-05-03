@@ -108,5 +108,15 @@ namespace DemoApp26.Pages
             AppData.AppData.CurrentProduct = ProductsList.SelectedItem as products;
             NavigationService.Navigate(new ProductForm());
         }
+
+        private void GoOrders_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersPage());
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

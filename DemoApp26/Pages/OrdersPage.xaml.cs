@@ -16,19 +16,31 @@ using System.Windows.Shapes;
 namespace DemoApp26.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Логика взаимодействия для OrdersPage.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class OrdersPage : Page
     {
-        public UserPage()
+        public OrdersPage()
         {
             InitializeComponent();
-            ProductsList.ItemsSource = AppData.AppData.db.products.ToList();
+            OrdersList.ItemsSource = AppData.AppData.db.orders.ToList();
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void AddOrder_Click(object sender, RoutedEventArgs e)
+        {
+            AppData.AppData.CurrentOrder = new orders();
+            NavigationService.Navigate(new OrderForm());
+        }
+
+        private void EditOrder_Click(object sender, RoutedEventArgs e)
+        {
+            AppData.AppData.CurrentOrder = OrdersList.SelectedItem as orders;
+            NavigationService.Navigate(new OrderForm());
         }
     }
 }

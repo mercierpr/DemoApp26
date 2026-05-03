@@ -9,12 +9,12 @@
       Title="LoginPage">
 
     <Grid Background="#FFFFFF">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
             <Label Content="Логин" Margin="0,0,0,5" />
-            <TextBox Name="loginInput" TextWrapping="Wrap" Width="120" Margin="0,0,0,10" />
+            <TextBox Name="loginInput" TextWrapping="Wrap" Margin="0,0,0,10" />
             <Label Content="Пароль"/>
-            <TextBox Name="passwordInput" TextWrapping="Wrap" Width="120" Margin="0,0,0,10"/>
-            <Button Content="Button" HorizontalAlignment="Left" Width="120" Height="30" Background="Chartreuse" Click="Button_Click"/>
+            <TextBox Name="passwordInput" TextWrapping="Wrap" Margin="0,0,0,10"/>
+            <Button Content="Войти" HorizontalAlignment="Left" Width="200" Height="30" Background="Chartreuse" Click="Button_Click" Cursor="Hand"/>
         </StackPanel>
     </Grid>
 </Page>

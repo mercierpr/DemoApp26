@@ -27,7 +27,7 @@ namespace DemoApp26.Pages
             DataContext = AppData.AppData.CurrentProduct;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
 
         {
             var currentProduct = AppData.AppData.CurrentProduct;
@@ -44,9 +44,9 @@ namespace DemoApp26.Pages
                 currentProduct.count = int.Parse(TextBoxCount.Text);
                 currentProduct.description = TextBoxDescription.Text;
 
-                if (AppData.AppData.CurrentProduct.id == 0)
+                if (currentProduct.id == 0)
                 {
-                    AppData.AppData.db.products.Add(AppData.AppData.CurrentProduct);
+                    AppData.AppData.db.products.Add(currentProduct);
                     AppData.AppData.db.SaveChanges();
                     MessageBox.Show("Продукт добавлен", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -56,12 +56,33 @@ namespace DemoApp26.Pages
                     MessageBox.Show("Данные успешно обновлены", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
-                NavigationService.Navigate(new ProductForm());
+                NavigationService.Navigate(new ProductPage());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Info", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ButtonDel_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppData.AppData.CurrentProduct.id == 0)
+            {
+                MessageBox.Show("Товар не найден. Удаление невозможно", "Info", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                AppData.AppData.db.products.Remove(AppData.AppData.CurrentProduct);
+                AppData.AppData.db.SaveChanges();
+                MessageBox.Show("Товар успешно удален", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                NavigationService.Navigate(new ProductForm());
+            }
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }
